@@ -2,8 +2,7 @@
   <div>
     <hr />
     <h1>name:{{name}}</h1>
-    <h1>sex:{{sex}}</h1>
-    <h1>age:{{age}}</h1>
+    <h1>address:{{address}}</h1>
     <button @click="showName">showName</button>
   </div>
 </template>
@@ -12,12 +11,12 @@
   import {hunhe2} from '../mixin'
 
   export default {
-    name: 'Student',
+    name: 'School',
     data() {
       return {
-        name:'TS',
-        sex:'male',
-        age:22
+        name:'CQNU',
+        address:"ChongQing",
+        x:200
       }
     },
     mixins:[hunhe2]
