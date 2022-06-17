@@ -1,0 +1,69 @@
+<template>
+  <li>
+    <label>
+      <input type="checkbox" @change="change(doList.id)" :checked="doList.done"/>
+      <span>{{doList.thing}}</span>
+    </label>
+    <button class="btn btn-danger" @click="deleteThing(doList.id)">删除</button>
+  </li>
+</template>
+
+<script>
+  export default {
+    name:'MyItem',
+    props:['doList','changeDone','deleteItem'],
+    methods:{
+      change(val){
+        this.changeDone(val);
+      },
+      deleteThing(val){
+        if(confirm('确认删除吗？')) this.deleteItem(val)
+      }
+    }
+  }
+</script>
+
+<style scpoed>
+  /*item*/
+  li {
+    list-style: none;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  li label {
+    float: left;
+    cursor: pointer;
+  }
+
+  li label li input {
+    vertical-align: middle;
+    margin-right: 6px;
+    position: relative;
+    top: -1px;
+  }
+
+  li .btn {
+    float: right;
+    display: none;
+    margin-top: 3px;
+  }
+
+  li:before {
+    content: initial;
+  }
+
+  li:last-child {
+    border-bottom: none;
+  }
+
+  li:hover {
+    background: #ccc;
+  }
+
+  li:hover .btn {
+    display: block;
+  }
+</style>
