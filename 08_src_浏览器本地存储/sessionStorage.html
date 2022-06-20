@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sessionStorage</title>
+</head>
+
+<body>
+  <h2>sessionStorage</h2>
+  <button onclick="saveData()">saveData</button>
+  <button onclick="getData()">getData</button>
+  <button onclick="removeData()">removeData</button>
+  <button onclick="clearData()">clearData</button>
+
+  <!-- IMPROT JS -->
+  <script>
+    function saveData() {
+      let p = {
+        name: '张三',
+        age: 18
+      }
+      window.sessionStorage.setItem('msg', 'hello');
+      sessionStorage.setItem('msg', 666); // 因为是window上的，所以window可以省略
+      sessionStorage.setItem('person', JSON.stringify(p))
+    }
+
+    function saveData() {
+      let p = {
+        name: '张三',
+        age: 18
+      }
+      window.sessionStorage.setItem('msg', 'hello');
+      sessionStorage.setItem('msg', 666); // 因为是window上的，所以window可以省略
+      sessionStorage.setItem('person', JSON.stringify(p))
+    }
+
+    function getData() {
+      console.log(sessionStorage.getItem('msg'));
+      let res = sessionStorage.getItem('person')
+      console.log(JSON.parse(res));
+    }
+
+    function removeData() {
+      sessionStorage.removeItem('person')
+    }
+
+    function clearData() {
+      sessionStorage.clear()
+    }
+  </script>
+</body>
+
+</html>
