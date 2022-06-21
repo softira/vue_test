@@ -12,6 +12,7 @@
     "less": "^3.5.0",
     "less-loader": "^7.3.0",
     "nanoid": "^4.0.0",
+    "pubsub-js": "^1.9.4",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
