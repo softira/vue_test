@@ -196,3 +196,23 @@
   1. 语法：`this.$nextTick(回调函数)`
   2. 作用：在下一次DOM更新结束后执行其指定的回调
   3. 什么时候用：当改变数据后，要基于更新后的新DOM进行某些操作时，要在nextTick所指定的回调函数中执行
+
+## Vue封装的过度与动画
+  1. 作用：在插入、更新或移除DOM元素时，在合适的时候给元素添加样式类名
+  2. 写法：
+    1. 准备好样式：
+      - 元素进入的样式：
+        + v-enter：进入的起点
+        + v-enter-active：进入的过程
+        + v-enter-to：进入的终点
+      - 元素离开的样式：
+        + v-leave：离开的起点
+        + v-leave-active：离开的过程
+        + v-leave-to：离开的终点
+    2. 使用<transition>包裹要过度的元素，并配置name属性：
+      ```
+      <transition name='hello'>
+        <h1 v-show="isShow">hello</h1>
+      </transition>
+      ```
+    3.备注：若多个元素需要过度，则需要使用：`<transition-group>`,且每个元素都要指定`key`值
