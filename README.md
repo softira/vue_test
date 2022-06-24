@@ -354,3 +354,7 @@
     2. 组件中读取Vuex中的数据：`$store.state.sum`
     3. 组件中修改vuex中的数据：`$store.dispatch('actions中的方法名',数据)`或`$store.commit('mutations中的方法名',数据)`
     **备注：若没有网络请求或其他业务逻辑，组件中也可以越过actions，即不写`dispatch`，直接编写`commit`**
+  5. getters的使用
+    1. 概念：当前state中的数据需要经过加工后再使用时，可以使用getter加工
+    2. 在`store.js`中追加`getters`配置
+    3. 数组中读取数据：`$state.getters.xxx`
