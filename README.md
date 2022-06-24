@@ -254,3 +254,56 @@
     说明：
       1. 优点：可以配置多个代理，且可以灵活的控制请求是否走代理
       2. 缺点：配置略微繁琐，请求资源必须加前缀
+
+## 插槽
+  1. 作用：让父组件可以向子组件指定位置插入html结构，也是一种组件间通信的方式，适用于**父组件 ===> 子组件**
+  2. 分类：默认插槽、具名插槽、作用域插槽
+  3. 使用方式
+    1. 默认插槽：
+      ```
+      父组件：
+        <List>
+          <div>html结构</div>
+        </List>
+      子组件：
+        <template>
+          <div>
+            <slot>插槽默认内容</slot>
+          </div>
+        </template>
+      ```
+    2. 具名插槽
+      ```
+      父组件：
+        <List>
+          <template slot='demo1'>
+            <div>html结构1</div>
+          </template>
+          <template slot='demo2'>
+            <div>html结构2</div>
+          </template>
+        </List>
+      子组件：
+        <template>
+          <div>
+            <slot name="demo1">插槽默认内容</slot>
+            <slot name="demo2">插槽默认内容</slot>
+          </div>
+        </template>
+      ```
+    3. 作用域插槽
+      1. 理解：**数据在组件的自身，但根据数据生成的结构需要组件的使用者来决定。**
+        ```
+          父组件：
+            <List>
+              <template scope='demo'>
+                <div>{{demo}}</div>
+              </template>
+            </List>
+          子组件：
+            <template>
+              <div>
+                <slot demo="demo">插槽默认内容</slot>
+              </div>
+            </template>
+        ```

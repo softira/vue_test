@@ -8,8 +8,6 @@
 </template>
 
 <script>
-  // 引入axios
-  import axios from 'axios'
 
   export default {
     name: 'Search',
@@ -22,7 +20,7 @@
       // axios获取数据
       getUserData(){
         this.$bus.$emit('updateListData',{isFirst:false,isLoading:true,errMsg:'',users:[]})
-        axios.get(`https://api.github.com/search/users?q=${this.keyWord}`).then(
+        this.$http.get(`https://api.github.com/search/users?q=${this.keyWord}`).then(
 					response => {
 						//请求成功后更新List的数据
 						this.$bus.$emit('updateListData',{isLoading:false,errMsg:'',users:response.data.items})
