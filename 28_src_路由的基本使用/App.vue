@@ -26,12 +26,12 @@
 </template>
 
 <script>
-  import About from './components/About';
-  import Home from './components/Home';
+  // import About from './components/About';
+  // import Home from './components/Home';
 
   export default {
     name: 'App',
-    components:{About,Home}
+    // components:{About,Home}
   }
 </script>
 
