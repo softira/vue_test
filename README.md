@@ -358,3 +358,9 @@
     1. 概念：当前state中的数据需要经过加工后再使用时，可以使用getter加工
     2. 在`store.js`中追加`getters`配置
     3. 数组中读取数据：`$state.getters.xxx`
+  6. 四个map方法的使用
+    1. mapState方法：用于帮助我们映射`state`中的数据为计算属性
+    2. mapGetter方法：用于帮助我们映射`getters`中的数据为计算属性
+    3. mapActions方法：用于帮助我们生成与`actions`对话的方法。即：包含`$store.dispatch(xxx)`的函数
+    4. mapMutations方法：用于帮助我们生成与`mutations`对话的方法。即：包含`$store.commit(xxx)`的函数
+    **备注：mapActions与mapMutations使用时，若需要传递参数，需要在模板中绑定时间时传递好参数，否则参数是事件对象**
