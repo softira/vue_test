@@ -364,3 +364,57 @@
     3. mapActions方法：用于帮助我们生成与`actions`对话的方法。即：包含`$store.dispatch(xxx)`的函数
     4. mapMutations方法：用于帮助我们生成与`mutations`对话的方法。即：包含`$store.commit(xxx)`的函数
     **备注：mapActions与mapMutations使用时，若需要传递参数，需要在模板中绑定时间时传递好参数，否则参数是事件对象**
+  7. 模块化+命名空间
+    1. 目的：让代码更好维护，让多钟数据分类更加明确。
+    2. 修改`store.js`
+      ```
+        const xxx1 = {
+          namespaced: true,// 开启命名空间
+          state:{x:1},
+          actions:{},
+          mutations:{},
+          getters:{}
+        }
+        const xxx2 = {
+          namespaced: true,// 开启命名空间
+          state:{},
+          actions:{},
+          mutations:{},
+          getters:{}
+        }
+
+        export default new Vuex.Store({
+          modules: {
+            xxx1,
+            xxx2
+          }
+        })
+      ```
+    3. 开启命名空间后，组件中读取state数据
+      ```
+        // 自己直接读取
+        this.$store.state.xxx1.x
+        // 借助mapSta读取
+        ...mapState('xxx1',['x'])
+      ```
+    43. 开启命名空间后，组件中读取getters数据
+      ```
+        // 自己直接读取
+        this.$store.getters['xxx1/x']
+        // 借助mapGetters读取
+        ...mapGetters('xxx1',['x'])
+      ```
+    5. 开启命名空间后，组件中调用dispatch方法
+      ```
+        // 自己直接调用
+        this.$store.dispatch['xxx1/..',value]
+        // 借助mapActions调用
+        ...mapActions('xxx1',{..:'..'})
+      ```
+    6. 开启命名空间后，组件中调用commit方法
+      ```
+        // 自己直接调用
+        this.$store.state.xxx1.x
+        // 借助mapMutations调用
+        ...mapMutations('xxx1',{..:'...'})
+      ```
