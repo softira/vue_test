@@ -530,3 +530,22 @@
       ```
       **特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置**
     3. 接收参数：`$route.params.id`
+  9. 路由的props配置
+    作用：让路由组件更方便的接收到参数
+      ```
+        {
+          name:'xxx',
+          path:'Xxx'
+          component:xxx,
+          // 第一种，值为对象
+          // props:{id:'xx'}
+          // 第二种，值为布尔值
+          // props:ture
+          // 第三种，值为函数
+          props($route){
+            return {
+              id:$route.query.id
+            }
+          }
+        }
+      ```
