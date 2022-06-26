@@ -491,3 +491,18 @@
         }"></router-link>
       ```
     2. 接受参数：`$route.query.xxx`
+  7. 命名路由
+    1. 作用：可以简化路由的跳转
+    2. 如何使用：
+      1. 给路由命名
+        ```
+          {
+            name:'xxx'
+            path:'Xxx'
+            component:Xxx
+          }
+        ```
+      2. 简化跳转：
+        ```
+          <router-link :to="{name:'xxx'}"></router-link>
+        ```
