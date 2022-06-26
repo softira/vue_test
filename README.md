@@ -531,7 +531,7 @@
       **特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置**
     3. 接收参数：`$route.params.id`
   9. 路由的props配置
-    作用：让路由组件更方便的接收到参数
+    1. 作用：让路由组件更方便的接收到参数
       ```
         {
           name:'xxx',
@@ -548,4 +548,22 @@
             }
           }
         }
+      ```
+  10. `<router-link>`的replace属性
+    1. 作用：控制器由路由跳转时操作浏览器历史记录的模式
+    2. 浏览器的历史记录有两种写入方式：分别为`push`和`replace`，`push`是追加历史记录，`replace`是替换当前记录，路由跳转的时候默认为`push`
+    3. 如何开启`replacce`模式：`<router-link replace></router-link>`
+  11. 编程式路由导航
+    1. 作用：不借助`<router-link>`实现路由跳转，让路由跳转更灵活
+    2. 具体编码：
+      ```
+        //$router的两个API
+        this.$router.push({
+          name:'xxx',
+          params:{...}
+        })
+        this.$router.replace({
+          name:'xxx',
+          params:{...}
+        })
       ```
