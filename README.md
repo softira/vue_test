@@ -571,7 +571,17 @@
     1. 作用：让不展示的路由组件保持挂载，不被销毁
     2. 具体编码：
       ```
-        <keep-alive include='[组件名]'>
+        <!-- 缓存一个，xxx为组件名 -->
+        <keep-alive include="xxx">
+          <router-view></router-view>
+        </keep-alive>
+        <!-- 缓存多个个，xxx1.xxx2为组件名 -->
+        <keep-alive :include="['xxx1','xxx2']">
           <router-view></router-view>
         </keep-alive>
       ```
+  13. 两个新的生命周期钩子
+    1. 作用：路由组件所独有的两个钩子，用于捕获路由组件的激活状态
+    2. 具体名字：
+      1. `activated`路由组件被激活时触发
+      2. `deactivated`路由组件失活时触发
