@@ -476,3 +476,18 @@
       ```
         <router-link to='/Xxx/Yyy'>Yyy</router-link>
       ```
+  6. 路由的query参数
+    1. 传递参数
+      ```
+        <!-- 字符串写法 -->
+        <router-link to="/aa/bb/cc?d=d&e=e"></router-link>
+        <!-- 对象写法 -->
+        <router-link :to="{
+          path:'/aa/bb/cc'
+          query:{
+            d:d,
+            e:e
+          }
+        }"></router-link>
+      ```
+    2. 接受参数：`$route.query.xxx`
