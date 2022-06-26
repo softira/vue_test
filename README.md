@@ -506,3 +506,27 @@
         ```
           <router-link :to="{name:'xxx'}"></router-link>
         ```
+  8. 路由的params参数
+    1. 配置路由，声明接受params参数
+      ```
+        {
+          name:'xxx'
+          path:'Xxx/:id/:name'
+          component:'Xxx'
+        }
+      ```
+    2. 传递参数
+      ```
+        <!-- 字符串写法 -->
+        <router-link :to="/Xxx/12/adc"></router-link>
+        <!-- 对象写法 -->
+        <router-link :to="{
+          name:'xxx'
+          params:{
+            id:12,
+            name:'adc'
+          }
+        }"></router-link>
+      ```
+      **特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置**
+    3. 接收参数：`$route.params.id`
